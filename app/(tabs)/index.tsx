@@ -1,7 +1,8 @@
 import { useRouter } from "expo-router";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
+import Card from '../../components/card';
 
-export default function Index() {
+export default function TabIndex() {
     const router = useRouter();
 
     const books = [
@@ -39,5 +40,11 @@ export default function Index() {
     }
     ];
 
-    
+    return(
+        <View>
+            <Text>abcd</Text>
+            <Card/>
+        </View>
+    );
+
 }
