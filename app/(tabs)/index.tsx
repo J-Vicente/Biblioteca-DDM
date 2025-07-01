@@ -5,54 +5,40 @@ import CardLivro from '../../components/livro_card';
 export default function TabIndex() {
     const router = useRouter();
 
-
-    interface Livro{
-        id: number;
-        title: string;
-        author: string;
-        category: string;
-        year: string;
-        description: string;
-    }
-
-    function NavigateToBook(livro: Livro) {
-        router.push({
-        pathname: '/books/[id]',
-        params: { 
-            id: livro.id.toString(),
-            title: livro.title,
-            author: livro.author,
-            category: livro.category,
-            year: livro.year,
-            description: livro.description,
-            
-        }
-        });
-    }
-
-
     return(
         <View>
             <View>
+                {books.map((book) => (
+                    <TouchableOpacity key={books[0].id}
+                    onPress={() => router.push(`/books/${books[0].id}`)}>
+                    {<CardLivro titulo={books[0].title} autor={books[0].author} categoria={books[0].category} />}
+                    </TouchableOpacity>
+                ))};
 
-                <TouchableOpacity>
-                 {<CardLivro titulo={books[0].title} autor={books[0].author} categoria={books[0].category} />}
-                </TouchableOpacity>
-
-                <TouchableOpacity>
-                    {<CardLivro titulo={books[1].title} autor={books[1].author} categoria={books[1].category} />}
-                </TouchableOpacity>
+                {books.map((book) => (
+                    <TouchableOpacity key={books[1].id}
+                    onPress={() => router.push(`/books/${books[1].id}`)}>
+                        {<CardLivro titulo={books[1].title} autor={books[1].author} categoria={books[1].category} />}
+                    </TouchableOpacity>
+                ))};
 
             </View>
 
             <View>
-                <TouchableOpacity>
-                    {<CardLivro titulo={books[2].title} autor={books[2].author} categoria={books[2].category} />}
-                </TouchableOpacity>
-                
-                <TouchableOpacity>
-                    {<CardLivro titulo={books[3].title} autor={books[3].author} categoria={books[3].category} />}
-                </TouchableOpacity>
+                {books.map((book) => (
+                    <TouchableOpacity key={books[2].id}
+                        onPress={() => router.push(`/books/${books[2].id}`)}>
+                        {<CardLivro titulo={books[2].title} autor={books[2].author} categoria={books[2].category} />}
+                    </TouchableOpacity>
+                ))};
+
+                {books.map((book) => (    
+                    <TouchableOpacity key={books[3].id}
+                        onPress={() => router.push(`/books/${books[3].id}`)}>
+                        {<CardLivro titulo={books[3].title} autor={books[3].author} categoria={books[3].category} />}
+                    </TouchableOpacity>
+                ))};
+
             </View>
         </View>
     );
