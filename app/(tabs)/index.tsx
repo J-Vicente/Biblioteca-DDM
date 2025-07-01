@@ -6,30 +6,51 @@ export default function TabIndex() {
     const router = useRouter();
 
 
-    function NavigateToBook(){
-        router.push('/books/[id]');
+    interface Livro{
+        id: number;
+        title: string;
+        author: string;
+        category: string;
+        year: string;
+        description: string;
+    }
+
+    function NavigateToBook(livro: Livro) {
+        router.push({
+        pathname: '/books/[id]',
+        params: { 
+            id: livro.id.toString(),
+            title: livro.title,
+            author: livro.author,
+            category: livro.category,
+            year: livro.year,
+            description: livro.description,
+            
+        }
+        });
     }
 
 
     return(
         <View>
             <View>
-                <TouchableOpacity onPress={NavigateToBook}>
+
+                <TouchableOpacity>
                  {<CardLivro titulo={books[0].title} autor={books[0].author} categoria={books[0].category} />}
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={NavigateToBook}>
+                <TouchableOpacity>
                     {<CardLivro titulo={books[1].title} autor={books[1].author} categoria={books[1].category} />}
                 </TouchableOpacity>
 
             </View>
 
             <View>
-                <TouchableOpacity onPress={NavigateToBook}>
+                <TouchableOpacity>
                     {<CardLivro titulo={books[2].title} autor={books[2].author} categoria={books[2].category} />}
                 </TouchableOpacity>
                 
-                <TouchableOpacity onPress={NavigateToBook}>
+                <TouchableOpacity>
                     {<CardLivro titulo={books[3].title} autor={books[3].author} categoria={books[3].category} />}
                 </TouchableOpacity>
             </View>
