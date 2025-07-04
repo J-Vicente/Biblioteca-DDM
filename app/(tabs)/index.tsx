@@ -6,39 +6,32 @@ export default function TabIndex() {
     const router = useRouter();
 
     return(
-        <View>
-            <View>
-                {books.map((book) => (
-                    <TouchableOpacity key={books[0].id}
-                    onPress={() => router.push(`/books/${books[0].id}`)}>
-                    {<CardLivro titulo={books[0].title} autor={books[0].author} categoria={books[0].category} />}
-                    </TouchableOpacity>
-                ))};
+        <View style={styles.body}>
+            <View style={styles.container}>
+                <TouchableOpacity key={books[0].id}
+                onPress={() => router.push(`/books/${books[0].id}`)}>
+                {<CardLivro titulo={books[0].title} autor={books[0].author} categoria={books[0].category} />}
+                </TouchableOpacity>
+            
 
-                {books.map((book) => (
-                    <TouchableOpacity key={books[1].id}
-                    onPress={() => router.push(`/books/${books[1].id}`)}>
-                        {<CardLivro titulo={books[1].title} autor={books[1].author} categoria={books[1].category} />}
-                    </TouchableOpacity>
-                ))};
-
+                <TouchableOpacity key={books[1].id}
+                onPress={() => router.push(`/books/${books[1].id}`)}>
+                {<CardLivro titulo={books[1].title} autor={books[1].author} categoria={books[1].category} />}
+                </TouchableOpacity>
             </View>
+       
 
-            <View>
-                {books.map((book) => (
-                    <TouchableOpacity key={books[2].id}
-                        onPress={() => router.push(`/books/${books[2].id}`)}>
-                        {<CardLivro titulo={books[2].title} autor={books[2].author} categoria={books[2].category} />}
-                    </TouchableOpacity>
-                ))};
+            <View style={styles.container}>
+                <TouchableOpacity key={books[2].id}
+                    onPress={() => router.push(`/books/${books[2].id}`)}>
+                    {<CardLivro titulo={books[2].title} autor={books[2].author} categoria={books[2].category} />}
+                </TouchableOpacity>
 
-                {books.map((book) => (    
-                    <TouchableOpacity key={books[3].id}
-                        onPress={() => router.push(`/books/${books[3].id}`)}>
-                        {<CardLivro titulo={books[3].title} autor={books[3].author} categoria={books[3].category} />}
-                    </TouchableOpacity>
-                ))};
 
+                <TouchableOpacity key={books[3].id}
+                    onPress={() => router.push(`/books/${books[3].id}`)}>
+                    {<CardLivro titulo={books[3].title} autor={books[3].author} categoria={books[3].category} />}
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -79,3 +72,18 @@ const books = [
     description: "A história da humanidade em 300 páginas."
 }
 ];
+
+const styles = StyleSheet.create({
+  body:{
+    height: 420,
+  },
+    container:{
+    flex: 1,
+    display:"flex",
+    flexDirection:"row",
+    justifyContent:"space-around",
+    height: "100%",
+  },
+  
+ 
+});
